@@ -1,8 +1,8 @@
-#Test Project <small>Social Media Research DashBoard</small>
+# Test Project <small>Social Media Research DashBoard</small>
 
 ## About the project
 
-This project consists of an experiment using the new version of Laravel (version 8) in conjunction with Bootstrap 4. The created simulates a visualization panel for posts on social media from lists of people. This panel allows you to query and filter information.
+This project consists of an experiment using the new version of Laravel (version 8) in conjunction with Bootstrap 4. The created app simulates a visualization panel for posts on social media from lists of people. This panel allows you to query and filter information.
 
 As it is not the focus of the project, the current solution does not access any social media API. It just emulates the information from fake data from a MySQL database.
 
