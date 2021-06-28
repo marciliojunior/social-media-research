@@ -80,4 +80,4 @@ Run the tests can be done using the command:
 ./vendor/bin/phpunit
 ```
 ## Author
-Marcílio Júnior / marcilio@outlook.com / 55+ 31 99709-8341
+Marcílio Júnior
