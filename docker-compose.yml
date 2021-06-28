@@ -1,0 +1,58 @@
+version: "3.7"
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: social-media-research-db
+    restart: unless-stopped
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: "social-media-research"
+      MYSQL_USER: "smresearch"
+      MYSQL_ROOT_PASSWORD: "Str0ngPassword!"
+      MYSQL_PASSWORD: "Str0ngPassword!"
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - social-media-research-network
+
+  app:
+    build:
+      args:
+        user: smresearch
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    environment:
+      APP_URL: "social-media-research.test"
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: "social-media-research"
+      DB_USERNAME: "smresearch"
+      DB_PASSWORD: "Str0ngPassword!"
+    image: "social-media-research"
+    container_name: social-media-research-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    networks:
+      - social-media-research-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: social-media-research-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
+    networks:
+      - social-media-research-network
+
+networks:
+  social-media-research-network:
+    driver: bridge

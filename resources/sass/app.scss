@@ -1,0 +1,51 @@
+:root {
+    --animate-duration: 0.1s;
+}
+
+.configButton{
+    position: fixed;
+    left: 5px;
+    top: 5px;
+    z-index: 2;
+}
+
+h1{
+    padding: 0;
+    small{
+        display: block;
+        font-size: .6em;
+        margin-top: 0;
+    }
+}
+
+label{
+    font-weight: bold;
+}
+
+.table{
+    .resume{
+        max-width: 400px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .listsColumn{
+        max-width: 120px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+hr {
+    width: 100%;
+}
+
+.badge-pill{
+    cursor: pointer;
+}
+
+.extraFilters{
+    color: red;
+    font-weight: bold;
+}
